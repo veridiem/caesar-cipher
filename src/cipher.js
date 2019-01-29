@@ -11,6 +11,13 @@ function codificar(){
     let mensagemCodificada;
     for(let i = 0; i < mensagemEnviada.length; i++) {
 
+        if(mensagemEnviada[i].charCodeAt() == 32){
+            mensagemCodificada = mensagemEnviada[i].charCodeAt() - 0;
+            result += String.fromCharCode(mensagemCodificada);
+        }
+
+        else{
+
             if(mensagemEnviada[i].charCodeAt() >= 65 && mensagemEnviada[i].charCodeAt() <= 90){
                 mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 65 + deslocamento) % 26) + 65;
                 result += String.fromCharCode(mensagemCodificada); 
@@ -20,7 +27,7 @@ function codificar(){
                 mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 97 + deslocamento) % 26) + 97;
                 result += String.fromCharCode(mensagemCodificada); 
             }
-        
+        }
         
     }
         
@@ -37,15 +44,22 @@ function decodificar(){
     let mensagemDecodificada;
     for(let i = 0; i < mensagemEnviada2.length; i++) {
 
-        if(mensagemEnviada2[i].charCodeAt() >= 65 && mensagemEnviada2[i].charCodeAt() <= 90){
-            mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 65 - deslocamento2) % 26) + 65;
-            result2 += String.fromCharCode(mensagemDecodificada); 
+        if(mensagemEnviada2[i].charCodeAt() == 32){
+            mensagemDecodificada = mensagemEnviada2[i].charCodeAt() - 0;
+            result2 += String.fromCharCode(mensagemDecodificada);
         }
 
-        else if(mensagemEnviada2[i].charCodeAt() >= 97 && mensagemEnviada2[i].charCodeAt() <= 122){
-            mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 97 - deslocamento2) % 26) + 97;
-            result2 += String.fromCharCode(mensagemDecodificada); 
-        }
+        else{
+            if(mensagemEnviada2[i].charCodeAt() >= 65 && mensagemEnviada2[i].charCodeAt() <= 90){
+                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 65 - deslocamento2) % 26) + 65;
+                result2 += String.fromCharCode(mensagemDecodificada); 
+            }
+
+            else if(mensagemEnviada2[i].charCodeAt() >= 97 && mensagemEnviada2[i].charCodeAt() <= 122){
+                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 97 - deslocamento2) % 26) + 97;
+                result2 += String.fromCharCode(mensagemDecodificada); 
+            }
+        }    
     }
         
     document.getElementById("decodificada").value = result2;
