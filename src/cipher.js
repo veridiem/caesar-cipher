@@ -12,19 +12,24 @@ function codificar(){
     for(let i = 0; i < mensagemEnviada.length; i++) {
 
         if(mensagemEnviada[i].charCodeAt() == 32){
-            mensagemCodificada = mensagemEnviada[i].charCodeAt() - 0;
+            mensagemCodificada = mensagemEnviada[i].charCodeAt();
+            result += String.fromCharCode(mensagemCodificada);
+        }
+
+        if(mensagemEnviada[i].charCodeAt() >= 48 && mensagemEnviada[i].charCodeAt() <= 57){
+            mensagemCodificada = mensagemEnviada[i].charCodeAt();
             result += String.fromCharCode(mensagemCodificada);
         }
 
         else{
 
             if(mensagemEnviada[i].charCodeAt() >= 65 && mensagemEnviada[i].charCodeAt() <= 90){
-                mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 65 + deslocamento) % 26) + 65;
+                mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 65 + (deslocamento % 26) + 26) % 26) + 65;
                 result += String.fromCharCode(mensagemCodificada); 
             }
     
             else if(mensagemEnviada[i].charCodeAt() >= 97 && mensagemEnviada[i].charCodeAt() <= 122){
-                mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 97 + deslocamento) % 26) + 97;
+                mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 97 + (deslocamento % 26) +26) % 26) + 97;
                 result += String.fromCharCode(mensagemCodificada); 
             }
         }
@@ -45,18 +50,23 @@ function decodificar(){
     for(let i = 0; i < mensagemEnviada2.length; i++) {
 
         if(mensagemEnviada2[i].charCodeAt() == 32){
-            mensagemDecodificada = mensagemEnviada2[i].charCodeAt() - 0;
+            mensagemDecodificada = mensagemEnviada2[i].charCodeAt();
+            result2 += String.fromCharCode(mensagemDecodificada);
+        }
+
+        if(mensagemEnviada2[i].charCodeAt() >= 48 && mensagemEnviada2[i].charCodeAt() <= 57){
+            mensagemDecodificada = mensagemEnviada2[i].charCodeAt();
             result2 += String.fromCharCode(mensagemDecodificada);
         }
 
         else{
             if(mensagemEnviada2[i].charCodeAt() >= 65 && mensagemEnviada2[i].charCodeAt() <= 90){
-                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 65 - deslocamento2) % 26) + 65;
+                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 65 - (deslocamento2 %26) + 26) % 26) + 65;
                 result2 += String.fromCharCode(mensagemDecodificada); 
             }
 
             else if(mensagemEnviada2[i].charCodeAt() >= 97 && mensagemEnviada2[i].charCodeAt() <= 122){
-                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 97 - deslocamento2) % 26) + 97;
+                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 97 - (deslocamento2 %26) +26) % 26) + 97;
                 result2 += String.fromCharCode(mensagemDecodificada); 
             }
         }    
