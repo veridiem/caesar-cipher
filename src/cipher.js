@@ -1,78 +1,79 @@
-//((codigoDaLetraASC - cod1aletra + desloc) % tamdoAlfabeto) + cod1aletra
-// _______ - 65 + <esse aqui vc insere> % 26 + 65
-// criptografar: + deslocamento e pra descriptografar: - deslocamento
+function getEncode(){
+    var firstOffset = parseInt(document.getElementById("chave1").value);
+    var sentMessage = document.getElementById("string").value;
+    var messageCode = encode(firstOffset, sentMessage);
+    document.getElementById("codificada").value = messageCode; 
+}
 
-
-function codificar(){
-    var deslocamento = parseInt(document.getElementById("chave1").value);
-    var mensagemEnviada = document.getElementById("string").value;
-
+function encode(offset, sendMessage){
+    
     let result = "";
-    let mensagemCodificada;
-    for(let i = 0; i < mensagemEnviada.length; i++) {
+    let codedMessage;
+    for(let i = 0; i < sendMessage.length; i++) {
 
-        if(mensagemEnviada[i].charCodeAt() == 32){
-            mensagemCodificada = mensagemEnviada[i].charCodeAt();
-            result += String.fromCharCode(mensagemCodificada);
+        if(sendMessage[i].charCodeAt() == 32){
+            codedMessage = sendMessage[i].charCodeAt();
+            result += String.fromCharCode(codedMessage);
         }
 
-        if(mensagemEnviada[i].charCodeAt() >= 48 && mensagemEnviada[i].charCodeAt() <= 57){
-            mensagemCodificada = mensagemEnviada[i].charCodeAt();
-            result += String.fromCharCode(mensagemCodificada);
+        if(sendMessage[i].charCodeAt() >= 48 && sendMessage[i].charCodeAt() <= 57){
+            codedMessage = sendMessage[i].charCodeAt();
+            result += String.fromCharCode(codedMessage);
         }
 
         else{
 
-            if(mensagemEnviada[i].charCodeAt() >= 65 && mensagemEnviada[i].charCodeAt() <= 90){
-                mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 65 + (deslocamento % 26) + 26) % 26) + 65;
-                result += String.fromCharCode(mensagemCodificada); 
+            if(sendMessage[i].charCodeAt() >= 65 && sendMessage[i].charCodeAt() <= 90){
+                codedMessage = ((sendMessage[i].charCodeAt() - 65 + (offset % 26) + 26) % 26) + 65;
+                result += String.fromCharCode(codedMessage); 
             }
     
-            else if(mensagemEnviada[i].charCodeAt() >= 97 && mensagemEnviada[i].charCodeAt() <= 122){
-                mensagemCodificada = ((mensagemEnviada[i].charCodeAt() - 97 + (deslocamento % 26) +26) % 26) + 97;
-                result += String.fromCharCode(mensagemCodificada); 
+            else if(sendMessage[i].charCodeAt() >= 97 && sendMessage[i].charCodeAt() <= 122){
+                codedMessage = ((sendMessage[i].charCodeAt() - 97 + (offset % 26) +26) % 26) + 97;
+                result += String.fromCharCode(codedMessage); 
             }
         }
         
     }
-        
-    document.getElementById("codificada").value = result;
+       return result;
 }    
 
-  
+function getDecode(){
+    var secondOffset = parseInt(document.getElementById("chave2").value);
+    var sentMessage2 = document.getElementById("string2").value;
+    var messageDecode = decode(secondOffset, sentMessage2);
+    document.getElementById("decodificada").value = messageDecode; 
+} 
 
-function decodificar(){
-    var deslocamento2 = parseInt(document.getElementById("chave2").value);
-    var mensagemEnviada2 = document.getElementById("string2").value;
-
+function decode(offset2, sendMessage2){
+    
     let result2 = "";
-    let mensagemDecodificada;
-    for(let i = 0; i < mensagemEnviada2.length; i++) {
+    let decodedMessage;
+    for(let i = 0; i < sendMessage2.length; i++) {
 
-        if(mensagemEnviada2[i].charCodeAt() == 32){
-            mensagemDecodificada = mensagemEnviada2[i].charCodeAt();
-            result2 += String.fromCharCode(mensagemDecodificada);
+        if(sendMessage2[i].charCodeAt() == 32){
+            decodedMessage = sendMessage2[i].charCodeAt();
+            result2 += String.fromCharCode(decodedMessage);
         }
 
-        if(mensagemEnviada2[i].charCodeAt() >= 48 && mensagemEnviada2[i].charCodeAt() <= 57){
-            mensagemDecodificada = mensagemEnviada2[i].charCodeAt();
-            result2 += String.fromCharCode(mensagemDecodificada);
+        if(sendMessage2[i].charCodeAt() >= 48 && sendMessage2[i].charCodeAt() <= 57){
+            decodedMessage = sendMessage2[i].charCodeAt();
+            result2 += String.fromCharCode(decodedMessage);
         }
 
         else{
-            if(mensagemEnviada2[i].charCodeAt() >= 65 && mensagemEnviada2[i].charCodeAt() <= 90){
-                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 65 - (deslocamento2 %26) + 26) % 26) + 65;
-                result2 += String.fromCharCode(mensagemDecodificada); 
+            if(sendMessage2[i].charCodeAt() >= 65 && sendMessage2[i].charCodeAt() <= 90){
+                decodedMessage = ((sendMessage2[i].charCodeAt() - 65 - (offset2 %26) + 26) % 26) + 65;
+                result2 += String.fromCharCode(decodedMessage); 
             }
 
-            else if(mensagemEnviada2[i].charCodeAt() >= 97 && mensagemEnviada2[i].charCodeAt() <= 122){
-                mensagemDecodificada = ((mensagemEnviada2[i].charCodeAt() - 97 - (deslocamento2 %26) +26) % 26) + 97;
-                result2 += String.fromCharCode(mensagemDecodificada); 
+            else if(sendMessage2[i].charCodeAt() >= 97 && sendMessage2[i].charCodeAt() <= 122){
+                decodedMessage = ((sendMessage2[i].charCodeAt() - 97 - (offset2 %26) +26) % 26) + 97;
+                result2 += String.fromCharCode(decodedMessage); 
             }
         }    
     }
-        
-    document.getElementById("decodificada").value = result2;
+    return result2;
 }
   
 
