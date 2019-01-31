@@ -4,28 +4,38 @@
     <meta charset="utf-8">
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
   </head>
   <body>
       <div id="root">
-        <p>Bem vindo ao Caesar Cipher! Aqui você pode codificar e decodificar suas mensagens!</p>
-        <h1>Codificação</h1>
-        <p>Insira aqui a chave de deslocamento: </p>
-        <input id="chave1" type="number"/>
-        <p>Insira aqui a mensagem a ser codificada:</p>
-        <input id="string" type="text"/>
-        <button onclick="getEncode()" id="botaoB">Codifique</button>
-        <input id="codificada" type="text">
-      
-    
-        <h1>Decodificação</h1>
-        <p>Insira aqui a chave de deslocamento:</p>
-        <input id="chave2" type="number"/>
-        <p>Insira aqui a mensagem a ser decodificada</p>
-        <input id="string2" type="text"/>
-        <button onclick="getDecode()" id="botaoD">Decodifique</button>
-        <input id="decodificada" type="text">
-   
+        <img src="topsecret.png" alt="Pastinha escrito Top Secret">
+        <h1>Caesar Cipher</h1>
+        <p>Bem vindo ao Caesar Cipher! Aqui você tem um sisteminha para codificar e decodificar suas mensagens!</p>
+        
+        <div class="card1">
+          <h2>Codificação</h2>
+          <p>Aqui você insere um número e sua mensagem, ela vai ser codificada através do deslocamento das letras do alfabeto.</p>
+          <p>Insira aqui a chave de deslocamento: </p>
+          <input id="chave1" type="number"/>
+          <p>Insira aqui a mensagem a ser codificada:</p>
+          <input id="string" type="text"/>
+          <button onclick="getEncode()" id="botaoB">Codifique</button>
+          <input id="codificada" type="text">
+        </div>  
+        
+        <div class="card2">
+          <h2>Decodificação</h2>
+          <p>Aqui você insere o número-chave que seu amigo te passar e a mensagem que você recebeu e o programa vai traduzir a sua mensagem.</p>
+          <p>Insira aqui a chave de deslocamento:</p>
+          <input id="chave2" type="number"/>
+          <p>Insira aqui a mensagem a ser decodificada:</p>
+          <input id="string2" type="text"/>
+          <button onclick="getDecode()" id="botaoD">Decodifique</button>
+          <input id="decodificada" type="text">
+        </div>
     </div>
+
+    <footer>Desenvolvido por Jessica Veridiana Santiago</footer>
     <script src="cipher.js"></script>
     <script src="tests.js"></script>
   </body>
