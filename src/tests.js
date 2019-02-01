@@ -1,44 +1,24 @@
-var testCode = encode(1, "abc");
+var sentToCode = encode(1, "abc")
 
-if (testCode === "bcd"){
-    console.log("O parâmetro 'abc' na função encode passou! =D");
-}
-else{
-    console.log("O parâmetro 'abc' na função encode foi reprovado =(");
-}
 
-var testeDecode = decode(1, "bcd");
+function verifyCode(sentToCode, answer) {
+    if (sentToCode === answer) {
+      console.log("Passou no parâmetro " + sentToCode);
+      return true;
+    }else {
+      console.log("Deu Erro! " + sentToCode + " não é igual a " + answer);
+      return false;
+    }
+  }
 
-if (testeDecode === "abc"){
-    console.log("O parâmetro 'bcd na função decode passou! =D")
-}
-else{
-    console.log("O parâmetro 'bcd' na função decode foi reprovado =,(")
-}
-
-var testCode2 = encode(35, "Testes Laboratoria");
-
-if (testCode2 === "Cnbcnb Ujkxajcxarj"){
-    console.log("O parâmetro 'Testes Laboratoria' na função encode passou!! Aeeee!");
-}
-else{
-    console.log("O parâmetro 'Testes Laboratoria' na função encode foi reprovado =(");
-}
-
-var testeDecode2 = decode(35, "Cnbcnb Ujkxajcxarj");
-
-if(testeDecode2 === "Testes Laboratoria"){
-    console.log("O parâmetro 'Testes Laboratoria' na função decode passou!! Aeeee!");
-}
-else{
-    console.log("O parâmetro 'Testes Laboratoria' na função decode foi reprovado =(");
-}
-
-var testCode3 = encode(-1, "bcd");
-
-if(testCode3 == "abc"){
-    console.log("O parâmetro 'bcd' na função encode passou! Aeeee!");
-}
-else{
-    console.log("O parâmetro 'bcd' na função encode foi reprovado =(");
-}
+verifyCode(sentToCode, "bcd");
+sentToCode = encode(35, "Testes Laboratoria");
+verifyCode(sentToCode, "Cnbcnb Ujkxajcxarj");
+sentToCode = encode(-1, "bcd");
+verifyCode(sentToCode, "abc");
+sentToCode = decode(1, "ghi");
+verifyCode(sentToCode, "fgh");
+sentToCode = decode(35, "Cnbcnb Ujkxajcxarj");
+verifyCode(sentToCode,"Testes Laboratoria");
+sentToCode = decode(-2, "efg");
+verifyCode(sentToCode, "ghi");

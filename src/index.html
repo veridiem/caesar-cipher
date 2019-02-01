@@ -7,33 +7,44 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
   </head>
   <body>
-      <div id="root">
+
+    <header>
         <h1>Caesar Cipher</h1>
         <p>Bem vindo ao Caesar Cipher! Aqui você tem um sisteminha para codificar e decodificar suas mensagens!</p>
-        
-        <div class="column">
+    </header>
+      <div id="root">             
+        <div class="column" id="coluna0">
           <h2>Codificação</h2>
           <p>Aqui você insere um número e sua mensagem, ela vai ser codificada através do deslocamento das letras do alfabeto.</p>
           <p>Insira aqui a chave de deslocamento: </p>
           <input id="chave1"/>
           <p>Insira aqui a mensagem a ser codificada:</p>
-          <input id="string" type="text"/>
-          <button onclick="getEncode()" id="botaoB">Codifique</button>
+          <div class="column" id="coluna1">
+              <input id="string" type="text"/>
+          </div>
+          <button onclick="getEncode()" id="botaoB">Codifique</button> 
+          <br><br> 
           <input id="codificada" type="text">
+          <br><br>
         </div>  
         
-        <div class="column">
+        
+        <div class="column" id="coluna2">
           <h2>Decodificação</h2>
           <p>Aqui você insere o número-chave que seu amigo te passar e a mensagem que você recebeu e o programa vai traduzir a sua mensagem.</p>
           <p>Insira aqui a chave de deslocamento:</p>
           <input id="chave2"/>
           <p>Insira aqui a mensagem a ser decodificada:</p>
-          <input id="string2" type="text"/>
+          <div class="column" id="coluna3">
+            <input id="string2" type="text"/>
+          </div>
           <button onclick="getDecode()" id="botaoD">Decodifique</button>
+          <br><br>
           <input id="decodificada" type="text">
+          <br><br>
         </div>
-    </div>
-
+      </div>
+    <br><br>
     <footer>Desenvolvido por Jessica Veridiana Santiago</footer>
     <script src="cipher.js"></script>
     <script src="tests.js"></script>

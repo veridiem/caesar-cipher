@@ -2,7 +2,7 @@ h1{
     text-align: center;
     font-family: 'Pacifico', sans-serif;
     font-size: 60px;
-    color: #000066;
+    color: #b3ffff;
     letter-spacing: inherit; 
 }
 
@@ -10,6 +10,7 @@ h2{
     text-align: center;
     font-family:'Pacifico', cursive, sans-serif;
     font-size: 30px;
+    color: #b3ffff;
 }
 
 p{
@@ -17,6 +18,8 @@ p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     letter-spacing: normal;
+    color:#b3ffff;
+    font-weight: bold;
 }
 
 input{
@@ -32,6 +35,11 @@ input{
     height: 15%;
 }
 
+#string, #string2, #codificada, #decodificada {
+    width: 250px;
+    height: 40px;
+}
+
 button{
     margin-left: auto;
     margin-right: auto;
@@ -39,23 +47,35 @@ button{
     float: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
+    font-weight: bold;
+    padding: 4px;
+    border-radius: 6px;
+    border-bottom-color: violet;
+    background-color: pink;
 }
 
 body{
-    background-image: url(background.jpg);
-    background-repeat: repeat;
+    background-image: url(space.jpg);
+    margin-bottom: 50px;
 }
 
-.column {
+#coluna0, #coluna2 {
     float: left;
     width: 47%;
+    padding-left: 40px;
+}
+
+#coluna1, #coluna3{
+    float: inherit;
+    margin-left: 150px;
+    width: 20%;
 }
 
 footer{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     text-align: center;
-    background-color:lightgray;
+    background-color:rgb(198, 228, 228);
     bottom: 0;
     position: fixed;
     width: 100%;
